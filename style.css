@@ -1,0 +1,263 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: black;
+    font-family: 'Orbitron', sans-serif;
+}
+
+canvas {
+    display: block;
+}
+
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #000, #111);
+    animation: pulse 10s infinite;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.8;
+    }
+}
+
+#startScreen,
+#gameOverScreen,
+#pauseScreen,
+#leaderboardScreen,
+#instructionsScreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    text-shadow: 0 0 9px #00ffff, 0 0 18px #00ffff;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#leaderboardScreen,
+#instructionsScreen {
+    z-index: 3;
+}
+
+#startScreen.visible,
+#gameOverScreen.visible,
+#pauseScreen.visible,
+#leaderboardScreen.visible,
+#instructionsScreen.visible {
+    opacity: 1;
+}
+
+#startScreen.hidden,
+#gameOverScreen.hidden,
+#pauseScreen.hidden,
+#leaderboardScreen.hidden,
+#instructionsScreen.hidden {
+    display: none;
+}
+
+#hud {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #00ffff;
+    font-size: 16.2px;
+    z-index: 1;
+    text-shadow: 0 0 9px #00ffff;
+    display: none;
+}
+
+#hud.visible {
+    display: block;
+}
+
+#timer,
+#score,
+#highScore {
+    margin: 4.5px 0;
+}
+
+#powerUps {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#powerUps.visible {
+    display: flex;
+}
+
+.powerUpIndicator {
+    width: 90px;
+    height: 9px;
+    background: rgba(0, 255, 255, 0.2);
+    margin: 4.5px 0;
+    border: 1px solid #00ffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.powerUpIndicator span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #00ffff;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 9px #00ffff;
+}
+
+.powerUpIndicator.yellow span {
+    background: #ffff00;
+    box-shadow: 0 0 9px #ffff00;
+}
+
+.powerUpIndicator.blue span {
+    background: #0000ff;
+    box-shadow: 0 0 9px #0000ff;
+}
+
+.powerUpIndicator.orange span {
+    background: #ff4500;
+    box-shadow: 0 0 9px #ff4500;
+}
+
+.powerUpIndicator.purple span {
+    background: #ff00ff;
+    box-shadow: 0 0 9px #ff00ff;
+}
+
+.powerUpLabel {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    color: #00ffff;
+    text-shadow: 0 0 4.5px #00ffff;
+    text-align: right;
+    margin-bottom: 2px;
+}
+
+button {
+    padding: 9px 18px;
+    font-size: 16.2px;
+    background: #00ffff;
+    border: none;
+    cursor: pointer;
+    margin: 9px 9px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: 'Orbitron', sans-serif;
+}
+
+button:hover {
+    transform: scale(0.99);
+    box-shadow: 0 0 13.5px #00ffff;
+}
+
+#startButton {
+    animation: buttonPulse 2s infinite;
+}
+
+#pauseButton {
+    position: absolute;
+    bottom: 9px;
+    left: 9px;
+    z-index: 1;
+    display: none;
+}
+
+#pauseButton.visible {
+    display: block;
+}
+
+#highScoresButton {
+    margin-top: 9px;
+}
+
+#leaderboardScreen h1,
+#instructionsScreen h1 {
+    font-size: 32.4px;
+    margin-bottom: 18px;
+}
+
+#leaderboardList,
+#instructionsList {
+    list-style: none;
+    padding: 0;
+    color: #00ffff;
+    text-shadow: 0 0 4.5px #00ffff;
+    text-align: center;
+}
+
+#leaderboardList li,
+#instructionsList li {
+    margin: 9px 0;
+    font-size: 18px;
+}
+
+#startScreen h1 {
+    font-size: 57.6px;
+    margin-top: -20vh;
+    animation: titlePulse 2s infinite;
+}
+
+#startScreen p {
+    font-size: 14.4px;
+    margin: 4.5px 0;
+}
+
+@keyframes titlePulse {
+    0% {
+        color: white;
+        text-shadow: 0 0 9px #00ffff, 0 0 18px #00ffff;
+    }
+
+    50% {
+        color: #ff0000;
+        text-shadow: 0 0 9px #ff0000, 0 0 18px #ff0000;
+    }
+
+    100% {
+        color: white;
+        text-shadow: 0 0 9px #00ffff, 0 0 18px #00ffff;
+    }
+}
+
+@keyframes buttonPulse {
+    0% {
+        background: #00ffff;
+        box-shadow: 0 0 9px #00ffff, 0 0 18px #00ffff;
+    }
+
+    50% {
+        background: #ff0000;
+        box-shadow: 0 0 9px #ff0000, 0 0 18px #ff0000;
+    }
+
+    100% {
+        background: #00ffff;
+        box-shadow: 0 0 9px #00ffff, 0 0 18px #00ffff;
+    }
+}

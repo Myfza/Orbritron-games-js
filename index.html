@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GAME-ORBITRON-X</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="background"></div>
+    <div id="startScreen" class="visible">
+        <h1>ORBITRON-X</h1>
+        <button id="instructionsButton">INSTRUCTIONS</button>
+        <button id="startButton">START GAME</button>
+        <button id="highScoresButton">HIGH SCORES</button>
+    </div>
+    <div id="hud">
+        <div id="timer">TIME: 0</div>
+        <div id="score">SCORE: 0</div>
+        <div id="lives">LIVES: 3</div>
+        <div id="highScore">HIGH SCORE: 0</div>
+    </div>
+    <div id="powerUps">
+        <span class="powerUpLabel">SPEED BOOST</span>
+        <div class="powerUpIndicator yellow" id="speedBoostIndicator"><span style="width: 0%"></span></div>
+        <span class="powerUpLabel">RED A.I. FLEES</span>
+        <div class="powerUpIndicator blue" id="fleeIndicator"><span style="width: 0%"></span></div>
+        <span class="powerUpLabel">GRID DAMAGE</span>
+        <div class="powerUpIndicator orange" id="doubleDamageIndicator"><span style="width: 0%"></span></div>
+        <span class="powerUpLabel">HALO SHIELD</span>
+        <div class="powerUpIndicator purple" id="shieldIndicator"><span style="width: 0%"></span></div>
+    </div>
+    <button id="pauseButton">PAUSE</button>
+    <div id="pauseScreen" class="hidden">
+        <h1>Paused</h1>
+        <button id="resumePauseButton">CONTINUE</button>
+        <button id="restartPauseButton">RESTART</button>
+        <button id="exitPauseButton">EXIT</button>
+    </div>
+    <div id="leaderboardScreen" class="hidden">
+        <h1>HIGH SCORES</h1>
+        <ul id="leaderboardList"></ul>
+        <button id="closeLeaderboardButton">CLOSE</button>
+    </div>
+    <div id="instructionsScreen" class="hidden">
+        <h1>INSTRUCTIONS</h1>
+        <ul id="instructionsList">
+            <li>ARROW KEYS MOVE BLUE ORBITRON</li>
+            <li>CATCH ALL RED AI ORBITRONS TO WIN</li>
+            <li>AVOID THE COLLAPSING GRIDS!</li>
+            <li>EXTRA RED AI ORBITRON SPAWN EVERY 60s</li>
+            <li>YELLOW ORBS = SPEED BOOST</li>
+            <li>BLUE ORBS = RED TRONS FLEE</li>
+            <li>ORANGE ORBS = DOUBLE COLLAPSE</li>
+            <li>WHITE ORBS = TELEPORT</li>
+            <li>CYAN ORBS = 1UP (EXTRA LIFE)</li>
+            <li>PURPLE ORBS = SHIELD (20s PROTECTION)</li>
+            <li>ENTER = START/RESTART</li>
+            <li>V = TOGGLE CHASE/ORBIT VIEW</li>
+            <li>MOUSE = ORBIT/PAN/ZOOM THE GRID</li>
+        </ul>
+        <button id="closeInstructionsButton">CLOSE</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.134/examples/js/controls/OrbitControls.js"></script>
+    <script src="script.js"></script>
+    <p
+        style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">
+        Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo"
+            style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a
+            href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;"
+            target="_blank">DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=RiaanFourie/orbitron-x"
+            style="color: #fff;text-decoration: underline;" target="_blank">Remix</a></p>
+</body>
+
+</html>
